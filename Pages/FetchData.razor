@@ -1,5 +1,6 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
+@inject IJSRuntime JSRuntime
 
 <h1>Weather forecast</h1>
 
@@ -32,10 +33,18 @@ else
             }
         </tbody>
     </table>
+
+    <button @onclick="ShowAlert" class="btn btn-primary">Show allert</button>
+
 }
 
 @code {
     private WeatherForecast[] forecasts;
+
+    public async Task ShowAlert()
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Coooool!");
+    }
 
     protected override async Task OnInitializedAsync()
     {
