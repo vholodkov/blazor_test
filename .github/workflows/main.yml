@@ -21,9 +21,9 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish WebAssemblyApp.csproj -c Release -o release --nologo
       
-    # changes the base-tag in index.html from '/' to 'WebAssemblyApp' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to WebAssemblyApp
-      run: sed -i 's/<base href="\/" \/>/<base href="\/WebAssemblyApp\/" \/>/g' release/wwwroot/index.html
+    # changes the base-tag in index.html from '/' to 'blazor_test' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to blazor_test
+      run: sed -i 's/<base href="\/" \/>/<base href="\/blazor_test\/" \/>/g' release/wwwroot/index.html
       
       # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
